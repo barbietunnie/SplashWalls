@@ -20,6 +20,7 @@ import {
 var Swiper = require('react-native-swiper');
 var NetworkImage = require('react-native-image-progress');
 var Progress = require('react-native-progress');
+var ShakeEvent = require('react-native-shake-event-ios');
 var ProgressHUD = require('./components/ProgressHUD');
 var RandManager = require('./utils/RandManager');
 var Utils = require('./utils/Utils');
@@ -117,6 +118,12 @@ class SplashWalls extends Component {
       onPanResponderRelease: this.handlePanResponderEnd,
       onPanResponderTerminate: this.handlePanResponderEnd
     });
+
+    // Fetch new wallpapers on shake
+    ShakeEvent.addEventListener('shake', () => {
+      this.initialize();
+      this.fetchWallsJSON();
+    });
   }
 
   componentDidMount() {
@@ -137,6 +144,8 @@ class SplashWalls extends Component {
       isLoading: true,
       isHUDVisible: false
     });
+
+    this.currentWallIndex = 0;
   }
 
   fetchWallsJSON() {
