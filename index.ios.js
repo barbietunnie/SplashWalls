@@ -255,6 +255,7 @@ class SplashWalls extends Component {
            dot={<View style={{backgroundColor: 'rgba(255, 255, 255, .4)', width: 8, height: 8, borderRadius: 10, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3}} />}
            activeDot={<View style={{backgroundColor: '#FFF', width: 13, height: 13, borderRadius: 7, marginLeft: 7, marginRight: 7}} />}
            loop={true}
+           index={this.currentWallIndex}
            onMomentumScrollEnd={this.onMomentumScrollEnd}>
             {
               wallsJSON.map((wallpaper, index) => {
