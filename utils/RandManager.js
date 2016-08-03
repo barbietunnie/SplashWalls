@@ -1,4 +1,5 @@
 module.exports = {
+
   uniqueRandomNumbers(numRandomNumbers, lowerLimit, upperLimit) {
     var uniqueNumbers = [];
     while(uniqueNumbers.length != numRandomNumbers) {
@@ -10,7 +11,9 @@ module.exports = {
 
     return uniqueNumbers;
   },
+  
   randomNumberInRange(lowerLimit, upperLimit) {
     return Math.floor( Math.random() * ( 1 + upperLimit - lowerLimit ) + lowerLimit );
   }
+
 }
